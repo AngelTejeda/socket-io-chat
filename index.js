@@ -8,15 +8,26 @@ const io = new Server(server);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-io.on('connection', (socket) => {
-  console.log('new connection: ' + socket.id);
+let messages = [];
 
-  // io.emit('prueba', { data: "Hola" });
+io.on('connection', (socket) => {
+  console.log('New connection: ' + socket.id);
+
   socket.on('user-data', (data) => {
     console.log(data);
   });
 
-  socket.emit('start', { data: socket.id });
+  socket.on('send-message', (data) => {
+    let newMessage = {
+      user: data.user,
+      message: data.message,
+      date: Date.now()
+    };
+
+    messages.push(newMessage);
+
+    io.emit('new-message', newMessage);
+  });
 });
 
 server.listen(3000, () => {

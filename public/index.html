@@ -40,10 +40,10 @@
       </div>
     </div>
 
-    <div class="container w-50 mt-3" id="messages" style="display: none;">
+    <div class="container w-50 mt-3" id="messages">
       <div class="card p-4">
         <div id="history">
-          <div class="message-group sent">
+          <!-- <div class="message-group sent">
             <div class="message">Hello!</div>
             <div class="message">Hello!</div>
             <div class="message">Hello!</div>
@@ -68,14 +68,14 @@
 
           <div class="message-group sent">
             <div class="message">Hello!</div>
-          </div>
+          </div> -->
         </div>
 
         <div id="chat">
           <form>
             <div class="form-group">
               <textarea name="message-field" id="message-field" class="form-control"></textarea>
-              <button type="button" class="btn btn-primary" id="send-button">></button>
+              <button type="button" class="btn btn-primary" id="send-button" onclick="sendMessage()" disabled="true">></button>
             </div>
           </form>
         </div>

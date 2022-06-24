@@ -16,7 +16,7 @@
 #history {
   display: flex;
   flex-direction: column;
-  max-height: 75vh;
+  height: 75vh;
   overflow-y: scroll;
   padding: 0 15px;
   padding-top: 10px;
