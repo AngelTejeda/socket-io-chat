@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Socket.IO chat</title>
+    
+    <script src="/jquery-3.6.0.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    
+    <div class="container mt-5" id="login">
+      <div class="card p-4">
+        <div class="card-body text-center">
+          <div class="card-title">Login</div>
+        </div>
+
+        <div class="card-body">
+          <form autocomplete="off">
+            <div class="form-group">
+              <label for="user">Username</label>
+              <input type="text" name="user" id="user" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="mail">Email</label>
+              <input type="email" id="mail" class="form-control">
+            </div>
+
+            <div>
+              <button class="btn btn-primary" onclick="login()">Send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="container w-50 mt-3" id="messages" style="display: none;">
+      <div class="card p-4">
+        <div id="history">
+          <div class="message-group sent">
+            <div class="message">Hello!</div>
+            <div class="message">Hello!</div>
+            <div class="message">Hello!</div>
+            <div class="message">Hello!</div>
+          </div>
+        
+          <div class="sender">Username</div>
+          <div class="message-group recieved">
+            <div class="message">Hello!</div>
+            <div class="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis necessitatibus, voluptates, dolor adipisci soluta mollitia, expedita atque doloribus minima quidem possimus officiis? Recusandae, possimus distinctio! Voluptatem beatae magnam quos facere quo, enim nobis neque, totam tempore eum minima aspernatur adipisci dolor odio dolore rerum perferendis earum tenetur illo iusto quisquam exercitationem provident nesciunt accusantium. Dolorum eveniet cupiditate molestiae voluptatibus, quos explicabo quaerat cumque quasi, natus est ullam impedit architecto corporis? Eum quas voluptates maiores ipsam officiis similique voluptas dolore doloremque sit voluptatem nemo repudiandae officia quibusdam, excepturi autem! Nisi, tempora nostrum dolorem laborum sapiente dignissimos pariatur mollitia nemo? Aliquid, recusandae.</div>
+            <div class="message">Hello!</div>
+            <div class="message">Hello! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima sunt possimus sit incidunt assumenda hic ratione officia illum obcaecati. Ipsam maxime ratione facere. Vero cum accusamus repellendus assumenda quibusdam facere.</div>
+          </div>
+
+          <div class="sender">Username</div>
+          <div class="message-group recieved">
+            <div class="message">Hello!</div>
+            <div class="message">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime sint qui expedita ipsum explicabo amet at fugiat officia eaque, harum, corporis quam in ab? Officiis autem molestiae laudantium cumque sequi?</div>
+            <div class="message">Hello!</div>
+            <div class="message">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur, expedita. Veniam neque veritatis quibusdam temporibus asperiores minima quos, deleniti modi dolore voluptate laboriosam provident quas, consequatur quidem quod magnam voluptas.</div>
+          </div>
+
+          <div class="message-group sent">
+            <div class="message">Hello!</div>
+          </div>
+        </div>
+
+        <div id="chat">
+          <form>
+            <div class="form-group">
+              <textarea name="message-field" id="message-field" class="form-control"></textarea>
+              <button type="button" class="btn btn-primary" id="send-button">></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="/script.js"></script>
+  </body>
+</html>
