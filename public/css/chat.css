@@ -1,0 +1,123 @@
+#messages-container {
+  display: flex;
+  flex-direction: column;
+  height: 75vh;
+  overflow-y: scroll;
+  padding: 0 15px;
+  padding-top: 10px;
+  outline: 1px solid #d8d8d8;
+}
+
+.sender {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.timestamp {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Message Group */
+.message-group {
+  margin-bottom: 20px;
+  max-width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.message-group:is(.sent) {
+  align-self: flex-end;
+}
+
+.message-group:is(.recieved) {
+  align-self: flex-start;
+}
+
+/* Message Line */
+.message-line {
+  display: flex;
+  align-items: center;
+}
+
+.message-group:is(.sent) .message-line {
+  justify-content: flex-end;
+}
+
+.message-group:is(.recieved) .message-line {
+  justify-content: flex-start;
+}
+
+.message-tick {
+  font-size: 20px;
+  margin: 10px;
+}
+
+/* Message */
+.message {
+  padding: 10px 15px;
+  margin: 2px 0;
+  width: fit-content;
+  font-size: 0.9rem;
+  max-width: 100%;
+}
+
+.message-group:is(.sent) .message {
+  background-color: #91c7ce;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  align-self: flex-end;
+}
+
+.message-group:is(.recieved) .message {
+  background-color: #d8d8d8;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  align-self: flex-start;
+}
+
+/* First message of each message group */
+.message-group .message-line:first-child .message {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* Last message of each message group */
+.message-group .message-line:last-child .message {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Message Input */
+#chat-form {
+  padding: 15px;
+  outline: 1px solid #d8d8d8;
+  height: 15vh;
+}
+
+#chat-container form {
+  height: 100%;
+}
+
+#chat-container form .form-group {
+  height: 100%;
+  position: relative;
+}
+
+#send-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 30px;
+}
+
+#message-input {
+  resize: none;
+  font-size: 0.9rem;
+  height: 100%;
+  padding-right: 20px;
+}

@@ -13,20 +13,30 @@ let messages = [];
 io.on('connection', (socket) => {
   console.log('New connection: ' + socket.id);
 
-  socket.on('user-data', (data) => {
-    console.log(data);
+  socket.on('login', (data) => {
+    socket.emit('chat-messages', {
+      messages: messages
+    });
+
+    io.emit('new-user', {
+      id: data.id,
+      user: data.user
+    });
   });
 
-  socket.on('send-message', (data) => {
+  socket.on('new-message', (data) => {
     let newMessage = {
+      id: data.id,
       user: data.user,
-      message: data.message,
+      text: data.text,
       date: Date.now()
     };
 
     messages.push(newMessage);
 
-    io.emit('new-message', newMessage);
+    setTimeout(() => {
+      io.emit('replicate-message', newMessage);
+    }, 3000);
   });
 });
 
